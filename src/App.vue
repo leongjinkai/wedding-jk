@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import Todos from './components/Todos.vue'
+import Main from './components/Main.vue'
+import Content from './components/Content.vue'
 </script>
 
 <template>
   <main>
-    <Todos />
+    <Main />
+    <Content />
   </main>
 </template>
 

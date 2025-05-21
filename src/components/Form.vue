@@ -154,4 +154,8 @@ button:hover {
     padding: 10px 14px;
     border-color: black;
 }
+
+button:focus {
+    outline: black;
+}
 </style>

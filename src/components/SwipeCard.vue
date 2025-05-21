@@ -342,7 +342,7 @@ onMounted(() => {
 }
 
 .container {
-    height: 100ddvh;
+    height: 100dvh;
     background-color: #f7ece7;
 }
 

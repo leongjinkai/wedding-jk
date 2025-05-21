@@ -14,7 +14,7 @@ import '@/assets/main.css';
 .form-end-background-container {
     background: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/form-attending-bg.jpeg");
     width: 100vw;
-    height: 100ddvh;
+    height: 100dvh;
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -113,13 +113,13 @@ onMounted(() => {
                     </div>
                 </div>
                 <div class="demo__card__choice m--reject">
-                    <video
+                    <!-- <video
                         class="demo__card__vid"
                         src="../assets/saibin.webm"
                         type="video/webm"
                         autoplay
                         loop
-                    ></video>
+                    ></video> -->
                     <p class="text-reject">Are you sure?</p>
                 </div>
                 <div class="demo__card__choice m--like">

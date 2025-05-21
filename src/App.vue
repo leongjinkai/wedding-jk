@@ -1,12 +1,30 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import Main from './components/Main.vue'
 import Content from './components/Content.vue'
+import SwipeCard from './components/SwipeCard.vue'
+import Form from './components/Form.vue'
+import FormEnd from './components/FormEnd.vue'
+
+const routes = {
+  '/': Main,
+  '/card': SwipeCard,
+  '/form': Form,
+  '/form-end': FormEnd
+}
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || Content
+})
 </script>
 
 <template>
-  <main>
-    <Main />
-    <Content />
-  </main>
+  <component :is="currentView"/>
 </template>
 

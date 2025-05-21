@@ -172,7 +172,7 @@ onMounted(() => {
 .demo__content {
     /* overflow: hidden; */
     position: relative;
-    height: 90vh;
+    height: 90dvh;
     width: 100vw;
     user-select: none;
     cursor: grab;
@@ -219,7 +219,7 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 80dvh;
     width: 100vw;
     overflow: hidden;
 }
@@ -246,7 +246,7 @@ onMounted(() => {
     left: 5vw;
     top: 0;
     width: 100%;
-    height: 80vh;
+    height: 80dvh;
     opacity: 0;
     border-radius: 5%;
     display: flex;
@@ -259,7 +259,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
-    height: 80vh;
+    height: 80dvh;
     align-items: end;
     overflow: hidden;
 }
@@ -269,7 +269,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
-    height: 80vh;
+    height: 80dvh;
     align-items: end;
     overflow: hidden;
 
@@ -293,7 +293,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
-    height: 80vh;
+    height: 80dvh;
     border-radius: 5%;
     display: flex;
     align-items: end;
@@ -342,7 +342,7 @@ onMounted(() => {
 }
 
 .container {
-    height: 100vh;
+    height: 100ddvh;
     background-color: #f7ece7;
 }
 

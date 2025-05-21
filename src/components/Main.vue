@@ -32,7 +32,7 @@ p.primary-details {
 
 .background-container {
     width: 100vw;
-    height: 100vh;
+    height: 100ddvh;
     background: linear-gradient(to bottom, transparent, 70%, #f7ece7), url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/main-photo.jpeg");
     background-color: #f7ece7;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@ p.primary-details {
 .main-container {
     margin-bottom: 40px;
     width: 100vw;
-    height: 100vh;
+    height: 100ddvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -90,7 +90,7 @@ p.primary-details {
     .main-container {
         margin-bottom: 60px;
         width: 100vw;
-        height: 100vh;
+        height: 100ddvh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;

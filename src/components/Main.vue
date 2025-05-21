@@ -5,18 +5,18 @@ import Content from './Content.vue'
 </script>
 
 <template>
-  <main class="background-container">
-    <div class="main-container">
-        <header class="ephesis-regular header-details">
-            Jin Kai & Jia Xuan
-        </header>
-        <div class="primary-details-container ephesis-regular">
-            <p class="primary-details">25.10.2025</p>
-            <p class="primary-details">Alcove at Caldwell House (Chjimes)</p>
-            <!-- <p class="primary-details">30 Victoria St, #02-05 Caldwell House, Singapore 187996</p> -->
+    <main class="background-container">
+        <div class="main-container">
+            <header class="ephesis-regular header-details">
+                Jin Kai & Jia Xuan
+            </header>
+            <div class="primary-details-container ephesis-regular">
+                <p class="primary-details">25.10.2025</p>
+                <p class="primary-details">Alcove at Caldwell House (Chjimes)</p>
+                <!-- <p class="primary-details">30 Victoria St, #02-05 Caldwell House, Singapore 187996</p> -->
+            </div>
         </div>
-    </div>
-  </main>
+    </main>
   <Content />
 </template>
 
@@ -75,6 +75,15 @@ p.primary-details {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .background-container {
+        width: 100vw;
+        height: 150dvh;
+        background: linear-gradient(to bottom, transparent, 70%, #f7ece7), url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/main-photo.jpeg");
+        background-color: #f7ece7;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
     .primary-details-container {
         display: flex;
         flex-direction: column;
@@ -85,7 +94,8 @@ p.primary-details {
 
     .main-container {
         margin-bottom: 60px;
-        width: 100vw;
+        margin-left: 50vw;
+        width: 50vw;
         height: 100dvh;
         display: flex;
         flex-direction: column;
@@ -95,6 +105,15 @@ p.primary-details {
         font-size: clamp(60px, 5vw, 200px);
         color: white;
         text-shadow: 5px 5px 10px black;
+    }
+
+    p.primary-details {
+        text-shadow: none;
+    }
+
+    header.header-details {
+        text-shadow: none;
+        color: black;
     }
 }
 </style>

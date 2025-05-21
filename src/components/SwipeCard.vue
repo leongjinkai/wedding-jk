@@ -292,10 +292,6 @@ onMounted(() => {
     height: 80dvh;
     align-items: end;
     overflow: hidden;
-
-    &:after {
-        transform: scaleY(-1);
-    }
 }
 
 .demo__card__drag {
@@ -380,5 +376,51 @@ p.swipe-instructions {
     padding: 0px;
     color: black;
     font-size: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .demo__card__top {
+        margin-left: 35vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80dvh;
+        width: 30vw;
+        overflow: hidden;
+    }
+
+    .default_card_img {
+        background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/default_card.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30vw;
+        height: 80dvh;
+        border-radius: 5%;
+        display: flex;
+        align-items: end;
+    }
+
+    .demo__card__choice.m--reject {
+        background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/reject_card.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 30vw;
+        width: 30vw;
+        height: 80dvh;
+        align-items: end;
+        overflow: hidden;
+    }
+
+    .demo__card__choice.m--like {
+    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/like_card.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30vw;
+    width: 30vw;
+    height: 80dvh;
+    align-items: end;
+    overflow: hidden;
+}
 }
 </style>

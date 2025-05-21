@@ -6,7 +6,11 @@ import SwipeCard from './components/SwipeCard.vue'
 import Form from './components/Form.vue'
 import FormEnd from './components/FormEnd.vue'
 
-const routes = {
+interface RouteTableInterface {
+    [index: string]: any
+}
+
+const routes: RouteTableInterface = {
   '/': Main,
   '/card': SwipeCard,
   '/form': Form,

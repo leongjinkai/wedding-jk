@@ -10,7 +10,7 @@ onMounted(() => {
     const decisionVal = 80;
     let pullDeltaX = 0;
     let deg = 0;
-    let card, cardReject, cardLike;
+    let card: any, cardReject: any, cardLike: any;
 
     function pullChange() {
         animating = true;
@@ -58,7 +58,7 @@ onMounted(() => {
         setTimeout(function () {
             card.removeAttribute("style");
             card.classList.remove("reset");
-            card.querySelectorAll(".demo__card__choice").forEach((el) =>
+            card.querySelectorAll(".demo__card__choice").forEach((el: any) =>
                 el.removeAttribute("style")
             );
             pullDeltaX = 0;
@@ -69,7 +69,7 @@ onMounted(() => {
     document.addEventListener("mousedown", handleStart);
     document.addEventListener("touchstart", handleStart);
 
-    function handleStart(e) {
+    function handleStart(e: any) {
         const target = e.target.closest(".demo__card:not(.inactive)");
         if (!target || animating) return;
 
@@ -78,7 +78,7 @@ onMounted(() => {
         cardLike = card.querySelector(".demo__card__choice.m--like");
         const startX = e.pageX || e.touches?.[0].pageX;
 
-        function handleMove(e) {
+        function handleMove(e: any) {
             const x = e.pageX || e.touches?.[0].pageX;
             pullDeltaX = x - startX;
             if (!pullDeltaX) return;

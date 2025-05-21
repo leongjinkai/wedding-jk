@@ -55,7 +55,7 @@ async function submitForm() {
                 </div>
             </div>
             
-            <button type="submit" id="name-button">Done &#8594;</button>
+            <button type="submit" id="name-button">Done</button>
         </form>
     </div>
 </template>
@@ -64,6 +64,7 @@ async function submitForm() {
 .form-container {
     padding: 30px 30px 30px 30px;
     width: calc(100vw - 60px);
+    background-color: #f7ece7;
 }
 
 .form-holder {
@@ -89,7 +90,8 @@ input {
     font-style: normal;
     width: 100%;
     font-size: 2.5rem;
-    padding: 20px 0 20px 0;
+    padding: 20px 0 20px 10px;
+    background-color: #f7ece7;
 }
 
 input:focus {
@@ -110,11 +112,13 @@ div.fade-out {
   0% {
     opacity: 0;
     display: none;
+    transform: translateY(20px)
   }
 
   100% {
     opacity: 1;
     display: block;
+    transform: translateY(0px)
   }
 }
 
@@ -133,5 +137,21 @@ div.fade-out {
 button {
     width: fit-content;
     align-self: end;
+    background-color: #f7ece7;
+    border: 1px solid black;
+    color: black;
+    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    padding: 10px 14px;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
+    padding: 10px 14px;
+    border-color: black;
 }
 </style>

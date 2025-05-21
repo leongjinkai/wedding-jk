@@ -7,7 +7,7 @@ onMounted(() => {
     let animating = false;
     let cardsCounter = 0;
     const numOfCards = 6;
-    const decisionVal = 80;
+    const decisionVal = 60;
     let pullDeltaX = 0;
     let deg = 0;
     let card: any, cardReject: any, cardLike: any;
@@ -104,12 +104,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <div class="demo__content">
             <div class="demo__card">
                 <div class="demo__card__top">
                     <div class="default_card_img">
-                        <p class="text-default">Jin Kai & Jia Xuan Wedding</p>
+                        <p class="text-default">JX & JK Wedding</p>
                     </div>
                 </div>
                 <div class="demo__card__choice m--reject">
@@ -152,16 +152,6 @@ onMounted(() => {
     --cardTopH: 10rem;
     --cardBtmH: var(--cardH) - var(--cardTopH);
     --vidSize: 8rem;
-
-    --purple: #7132b9;
-    --blue: #248cb6;
-    --indigo: #303f9f;
-    --cyan: #26c6da;
-    --lime: #afb42b;
-    --brown: #795548;
-
-    --orange: #a51515;
-    --green: #b1da96;
 }
 
 .body-text {
@@ -186,7 +176,6 @@ onMounted(() => {
     width: 100vw;
     user-select: none;
     cursor: grab;
-    background-color: black;
 }
 
 .demo__card {
@@ -233,7 +222,6 @@ onMounted(() => {
     height: 80vh;
     width: 100vw;
     overflow: hidden;
-    background-color: black;
 }
 
 .demo__card__vid {
@@ -255,7 +243,7 @@ onMounted(() => {
 
 .demo__card__choice {
     position: absolute;
-    left: 0;
+    left: 5vw;
     top: 0;
     width: 100%;
     height: 80vh;
@@ -267,15 +255,20 @@ onMounted(() => {
 }
 
 .demo__card__choice.m--reject {
-    background: var(--orange);
+    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/reject_card.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90vw;
+    height: 80vh;
+    align-items: end;
     overflow: hidden;
 }
 
 .demo__card__choice.m--like {
-    background-image: url("../assets/like_card1.jpeg");
+    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/like_card.jpeg");
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 100vw;
+    background-size: cover;
+    width: 90vw;
     height: 80vh;
     align-items: end;
     overflow: hidden;
@@ -296,10 +289,10 @@ onMounted(() => {
 }
 
 .default_card_img {
-    background-image: url("../assets/default_card1.jpeg");
+    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/default_card.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
+    width: 90vw;
     height: 80vh;
     border-radius: 5%;
     display: flex;
@@ -349,17 +342,23 @@ onMounted(() => {
 }
 
 .container {
-    background-color: black;
     height: 100vh;
+    background-color: #f7ece7;
 }
 
 .instruction-container {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 5vw;
 }
 
 .align-right {
     text-align: right;
+}
+
+p.swipe-instructions {
+    padding: 0px;
+    color: black;
+    font-size: 20px;
 }
 </style>

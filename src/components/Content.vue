@@ -19,18 +19,17 @@ const client = generateClient<Schema>();
         <div class="body-text text-bold text-md">
             Alcove at Caldwell House (Chjimes)
         </div>
-        <a class="availability-button" href="#/form">HERE HERE! CLICK ME!</a>
+        <a class="availability-button" href="#/form">Indicate availability</a>
     </div>
 </template>
 
 <style>
 .content-container {
-    background-color: white;
+    background-color: #f7ece7;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
 }
 
 .header-text {
@@ -45,12 +44,12 @@ const client = generateClient<Schema>();
     display: flex;
     gap: 10px;
     flex-direction: column;
-    align-self: start;
     font-family: "Alumni Sans Pinstripe", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: clamp(25px, 2vw, 50px);
     margin: 20px 0 20px 20px;
+    align-self: start;
 }
 
 .address-detail {
@@ -101,18 +100,19 @@ const client = generateClient<Schema>();
     padding: 10px 10px;
     border: 1px solid black;
     cursor: pointer;
-    border-radius: 5%;
+    border-radius: 8px;
     margin: 40px 0 20px 0;
     font-weight: 400;
     color: black;
     font-family: "Alumni Sans Pinstripe", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 24px;
+    transition-duration: 0.4s;
 }
 
 .availability-button:hover {
-    background-color: mistyrose;
+    background-color: white;
     box-shadow: 2px 2px 5px black;
-    font-size: 18px;
 }
 </style>

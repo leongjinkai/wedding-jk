@@ -6,6 +6,31 @@ import SwipeCard from './components/SwipeCard.vue'
 import Form from './components/Form.vue'
 import FormEnd from './components/FormEnd.vue'
 
+const nameRef = ref("");
+const emailRef = ref("");
+const dietRef = ref("");
+const messageRef = ref("");
+
+function updateRef(refKey: string, newValue: string) {
+    console.log("update")
+    switch (refKey) {
+        case "name":
+            nameRef.value = newValue;
+            break;
+        case "email":
+            emailRef.value = newValue;
+            break;
+        case "diet":
+            dietRef.value = newValue;
+            break;
+        case "message":
+            messageRef.value = newValue;
+            break;
+        default:
+            break;
+    }
+}
+
 interface RouteTableInterface {
     [index: string]: any
 }
@@ -26,9 +51,11 @@ window.addEventListener('hashchange', () => {
 const currentView = computed(() => {
   return routes[currentPath.value.slice(1) || '/'] || Content
 })
+
+
 </script>
 
 <template>
-  <component :is="currentView"/>
+  <component :is="currentView" :nameRef="nameRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :updateRef="updateRef"/>
 </template>
 

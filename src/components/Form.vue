@@ -1,33 +1,10 @@
 <script setup lang="ts">
 import '@/assets/main.css';
-import { ref } from 'vue';
-import { generateClient } from 'aws-amplify/data';
-import type { Schema } from "../../amplify/data/resource";
 
-const name = ref("");
-const email = ref("");
-const diet = ref("");
-const message = ref("");
+
+defineProps(['updateRef'])
 
 async function submitForm() {
-    console.log(name.value)
-    console.log(email.value)
-    console.log(diet.value)
-    console.log(message.value)
-
-    const client = generateClient<Schema>();
-
-    const { errors, data: newAttendance } = await client.models.Attendance.create({
-        name: name.value,
-        email: email.value,
-        dietaryPreferences: diet.value,
-        messageToCouple: message.value
-    })
-
-    if (errors) {
-        console.log(errors)
-    }
-    
     window.location.hash = "/card";
 }
 
@@ -39,19 +16,23 @@ async function submitForm() {
             <div class="question-container">
                 <div id="qn-1" class="fade-in">
                     <p class="question-text">may i have your glorious name</p>
-                    <input type="text" placeholder="I am called..." v-model="name" autofocus required>
+                    <!-- @vue-expect-error -->
+                    <input type="text" placeholder="I am called..." @input="event => updateRef('name', inputTarget?.value)" autofocus required>
                 </div>
                 <div id="qn-2" class="fade-in">
                     <p class="question-text">email @ddress</p>
-                    <input type="email" placeholder="No work email plz ;)" required v-model="email">
+                    <!-- @vue-expect-error -->
+                    <input type="email" placeholder="No work email plz ;)" required @input="event => updateRef('email', event.target?.value)">
                 </div>
                 <div id="qn-3" class="fade-in">
                     <p class="question-text">what food cmi</p>
-                    <input type="text" placeholder="Dietary preferences here..." required  v-model="diet">
+                    <!-- @vue-expect-error -->
+                    <input type="text" placeholder="Dietary preferences here..." required @input="event => updateRef('diet', event.target?.value)">
                 </div>
                 <div id="qn-4" class="fade-in">
                     <p class="question-text">Leave a message for the couple~</p>
-                    <input type="text" placeholder="e.g. OMG JX is da prettiest >.<"  v-model="message">
+                    <!-- @vue-expect-error -->
+                    <input type="text" placeholder="e.g. OMG JX is da prettiest >.<" @input="event => updateRef('message', event.target?.value)">
                 </div>
             </div>
             

@@ -1,6 +1,25 @@
 <script setup lang="ts">
 import "@/assets/main.css";
 import { onMounted } from "vue";
+import { generateClient } from 'aws-amplify/data';
+import type { Schema } from "../../amplify/data/resource";
+
+const props = defineProps(['nameRef', 'emailRef', 'dietRef', 'messageRef'])
+
+async function saveAttendance() {
+    const client = generateClient<Schema>();
+
+    const { errors, data: newAttendance } = await client.models.Attendance.create({
+        name: props.nameRef,
+        email: props.emailRef,
+        dietaryPreferences: props.dietRef,
+        messageToCouple: props.messageRef
+    })
+
+    if (errors) {
+        console.log(errors)
+    }
+}
 
 onMounted(() => {
     // Swipe card animation
@@ -28,6 +47,7 @@ onMounted(() => {
     function release() {
         if (pullDeltaX >= decisionVal) {
             console.log("to right");
+            saveAttendance()
             window.location.hash = "/form-end";
             card.classList.add("to-right");
         } else if (pullDeltaX <= -decisionVal) {

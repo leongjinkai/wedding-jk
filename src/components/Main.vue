@@ -3,8 +3,19 @@ import '@/assets/main.css';
 import type { Schema } from '../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
 import Content from './Content.vue'
+import { downloadData } from 'aws-amplify/storage/s3';
 
 const client = generateClient<Schema>();
+
+try {
+    const result = await downloadData({
+        path: "media/main-photo.jpeg",
+    }).result;    
+    console.log(result)
+} catch (error) {
+    console.log(error)
+}
+
 
 </script>
 

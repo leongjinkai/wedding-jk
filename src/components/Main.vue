@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import '@/assets/main.css';
-import type { Schema } from '../../amplify/data/resource';
-import { generateClient } from 'aws-amplify/data';
 import Content from './Content.vue'
-
-const client = generateClient<Schema>();
 
 </script>
 

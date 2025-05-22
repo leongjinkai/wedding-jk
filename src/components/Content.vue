@@ -28,6 +28,7 @@ import "@/assets/main.css";
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 40px;
 }
 
 .header-text {

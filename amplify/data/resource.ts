@@ -17,7 +17,8 @@ const schema = a.schema({
         name: a.string(),
         email: a.string(),
         dietaryPreferences: a.string(),
-        messageToCouple: a.string() 
+        messageToCouple: a.string(),
+        attending: a.boolean()
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });

@@ -12,14 +12,15 @@ onBeforeMount(() => {
     }
 })
 
-async function saveAttendance() {
+async function saveAttendance(attending: boolean) {
     const client = generateClient<Schema>();
 
     const { errors, data: newAttendance } = await client.models.Attendance.create({
         name: props.nameRef,
         email: props.emailRef,
         dietaryPreferences: props.dietRef,
-        messageToCouple: props.messageRef
+        messageToCouple: props.messageRef,
+        attending: attending
     })
 
     if (errors) {
@@ -52,11 +53,11 @@ onMounted(() => {
 
     function release() {
         if (pullDeltaX >= decisionVal) {
-            saveAttendance()
+            saveAttendance(true)
             props.toggleSwipeDirection(1)
             card.classList.add("to-right");
         } else if (pullDeltaX <= -decisionVal) {
-            saveAttendance()
+            saveAttendance(false)
             props.toggleSwipeDirection(0)
             card.classList.add("to-left");
         }

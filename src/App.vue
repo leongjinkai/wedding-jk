@@ -6,10 +6,17 @@ import SwipeCard from './components/SwipeCard.vue'
 import Form from './components/Form.vue'
 import FormEnd from './components/FormEnd.vue'
 
+const enum Direction {
+    Left,
+    Right
+}
+
 const nameRef = ref("");
 const emailRef = ref("");
 const dietRef = ref("");
 const messageRef = ref("");
+const filledFormRef = ref(false)
+const swipeDirectionRef = ref(Direction.Right);
 
 function updateRef(refKey: string, newValue: string) {
     switch (refKey) {
@@ -28,6 +35,14 @@ function updateRef(refKey: string, newValue: string) {
         default:
             break;
     }
+}
+
+function toggleForm() {
+    filledFormRef.value = !filledFormRef.value;
+}
+
+function toggleSwipeDirection(direction: number) {
+    swipeDirectionRef.value = direction;
 }
 
 interface RouteTableInterface {
@@ -55,6 +70,6 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <component :is="currentView" :nameRef="nameRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :updateRef="updateRef"/>
+  <component :is="currentView" :nameRef="nameRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :swipeDirectionRef="swipeDirectionRef" :toggleSwipeDirection="toggleSwipeDirection" :toggleForm="toggleForm" :updateRef="updateRef"/>
 </template>
 

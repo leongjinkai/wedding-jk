@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import "@/assets/main.css";
-import { onMounted } from "vue";
+import { onBeforeMount, onMounted } from "vue";
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from "../../amplify/data/resource";
 
-const props = defineProps(['nameRef', 'emailRef', 'dietRef', 'messageRef'])
+const props = defineProps(['nameRef', 'emailRef', 'dietRef', 'messageRef', 'filledFormRef', 'toggleSwipeDirection'])
+
+onBeforeMount(() => {
+    if (!props.filledFormRef) {
+        window.location.hash = "/";
+    }
+})
 
 async function saveAttendance() {
     const client = generateClient<Schema>();
@@ -46,14 +52,15 @@ onMounted(() => {
 
     function release() {
         if (pullDeltaX >= decisionVal) {
-            console.log("to right");
             saveAttendance()
-            window.location.hash = "/form-end";
+            props.toggleSwipeDirection(1)
             card.classList.add("to-right");
         } else if (pullDeltaX <= -decisionVal) {
-            console.log("to left");
+            saveAttendance()
+            props.toggleSwipeDirection(0)
             card.classList.add("to-left");
         }
+        window.location.hash = "/form-end";
 
         if (Math.abs(pullDeltaX) >= decisionVal) {
             card.classList.add("inactive");

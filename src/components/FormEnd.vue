@@ -1,13 +1,37 @@
 <script setup lang="ts">
 import '@/assets/main.css';
+import { onBeforeMount, onMounted, onUnmounted } from 'vue';
+
+const props = defineProps(['filledFormRef', 'toggleForm', 'swipeDirectionRef', 'toggleSwipeDirection'])
+
+onBeforeMount(() => {
+    if (!props.filledFormRef) {
+        window.location.hash = "/";
+    }
+})
+
+onMounted(() => {
+    props.toggleForm();
+    console.log(props.swipeDirectionRef);
+})
+
+onUnmounted(() => {
+    props.toggleSwipeDirection(1);
+})
 
 </script>
 
 <template>
     <div class="desktop-bg">
         <div class="form-end-background-container fade-in">
-            <p class="form-end-text">Thank you for joining us!</p>
-            <p class="form-end-text">Look forward to seeing you there &#128540;</p>
+            <div v-if="props.swipeDirectionRef == 1">
+                <p class="form-end-text">Thank you for joining us!</p>
+                <p class="form-end-text">Look forward to seeing you there!</p>
+            </div>
+            <div v-else>
+                <p  class="form-end-text">Really sad you are unable to make it.</p>
+                <p class="form-end-text">Issok, see you around!</p>
+            </div>
         </div>
     </div>
 </template>

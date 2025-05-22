@@ -2,9 +2,10 @@
 import '@/assets/main.css';
 
 
-defineProps(['updateRef'])
+const props = defineProps(['updateRef', 'toggleForm'])
 
 async function submitForm() {
+    props.toggleForm();
     window.location.hash = "/card";
 }
 
@@ -15,28 +16,28 @@ async function submitForm() {
         <form v-on:submit.prevent="submitForm" class="form-holder">
             <div class="question-container">
                 <div id="qn-1" class="fade-in">
-                    <p class="question-text">may i have your glorious name</p>
+                    <p class="question-text">name</p>
                     <!-- @vue-expect-error -->
-                    <input type="text" placeholder="I am called..." @input="event => updateRef('name', event.target?.value)" autofocus required>
+                    <input type="text" placeholder="Type here..." @input="event => updateRef('name', event.target?.value)" autofocus required>
                 </div>
                 <div id="qn-2" class="fade-in">
-                    <p class="question-text">email @ddress</p>
+                    <p class="question-text">email address</p>
                     <!-- @vue-expect-error -->
-                    <input type="email" placeholder="No work email plz ;)" required @input="event => updateRef('email', event.target?.value)">
+                    <input type="email" placeholder="Type here..." required @input="event => updateRef('email', event.target?.value)">
                 </div>
                 <div id="qn-3" class="fade-in">
-                    <p class="question-text">what food cmi</p>
+                    <p class="question-text">dietary restrictions</p>
                     <!-- @vue-expect-error -->
-                    <input type="text" placeholder="Dietary preferences here..." required @input="event => updateRef('diet', event.target?.value)">
+                    <input type="text" placeholder="Type here..." required @input="event => updateRef('diet', event.target?.value)">
                 </div>
                 <div id="qn-4" class="fade-in">
-                    <p class="question-text">Leave a message for the couple~</p>
+                    <p class="question-text">leave a message for the couple~</p>
                     <!-- @vue-expect-error -->
                     <input type="text" placeholder="e.g. OMG JX is da prettiest >.<" @input="event => updateRef('message', event.target?.value)">
                 </div>
             </div>
             
-            <button type="submit" id="name-button">Done</button>
+            <button type="submit" id="name-button">Next</button>
         </form>
     </div>
 </template>

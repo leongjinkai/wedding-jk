@@ -12,8 +12,7 @@ import Content from './Content.vue'
             </header>
             <div class="primary-details-container ephesis-regular">
                 <p class="primary-details">25.10.2025</p>
-                <p class="primary-details">Alcove at Caldwell House (Chjimes)</p>
-                <!-- <p class="primary-details">30 Victoria St, #02-05 Caldwell House, Singapore 187996</p> -->
+                <p class="primary-details">Alcove at Caldwell House</p>
             </div>
         </div>
     </main>

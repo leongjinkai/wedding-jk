@@ -11,8 +11,7 @@ onBeforeMount(() => {
 })
 
 onMounted(() => {
-    props.toggleForm();
-    console.log(props.swipeDirectionRef);
+    props.toggleForm(false);
 })
 
 onUnmounted(() => {

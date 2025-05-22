@@ -5,7 +5,7 @@ import '@/assets/main.css';
 const props = defineProps(['updateRef', 'toggleForm'])
 
 async function submitForm() {
-    props.toggleForm();
+    props.toggleForm(true);
     window.location.hash = "/card";
 }
 

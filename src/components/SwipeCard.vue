@@ -15,6 +15,7 @@ onBeforeMount(() => {
 async function saveAttendance(attending: boolean) {
     const client = generateClient<Schema>();
 
+
     const { errors, data: newAttendance } = await client.models.Attendance.create({
         name: props.nameRef,
         email: props.emailRef,

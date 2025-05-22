@@ -37,8 +37,8 @@ function updateRef(refKey: string, newValue: string) {
     }
 }
 
-function toggleForm() {
-    filledFormRef.value = !filledFormRef.value;
+function toggleForm(filled: boolean) {
+    filledFormRef.value = filled;
 }
 
 function toggleSwipeDirection(direction: number) {

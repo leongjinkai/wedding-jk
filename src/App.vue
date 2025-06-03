@@ -13,12 +13,14 @@ const enum Direction {
 
 const nameRef = ref("");
 const emailRef = ref("");
+const mobileRef = ref("");
 const dietRef = ref("");
 const messageRef = ref("");
+const attendingRef = ref("");
 const filledFormRef = ref(false)
-const swipeDirectionRef = ref(Direction.Right);
 
 function updateRef(refKey: string, newValue: string) {
+    console.log(`updated Ref for ${refKey} with ${newValue}`)
     switch (refKey) {
         case "name":
             nameRef.value = newValue;
@@ -26,11 +28,17 @@ function updateRef(refKey: string, newValue: string) {
         case "email":
             emailRef.value = newValue;
             break;
+        case "mobile":
+            mobileRef.value = newValue;
+            break;
         case "diet":
             dietRef.value = newValue;
             break;
         case "message":
             messageRef.value = newValue;
+            break;
+        case "attendance":
+            attendingRef.value = newValue;
             break;
         default:
             break;
@@ -39,10 +47,6 @@ function updateRef(refKey: string, newValue: string) {
 
 function toggleForm(filled: boolean) {
     filledFormRef.value = filled;
-}
-
-function toggleSwipeDirection(direction: number) {
-    swipeDirectionRef.value = direction;
 }
 
 interface RouteTableInterface {
@@ -70,6 +74,6 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <component :is="currentView" :nameRef="nameRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :swipeDirectionRef="swipeDirectionRef" :toggleSwipeDirection="toggleSwipeDirection" :toggleForm="toggleForm" :updateRef="updateRef"/>
+  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef"/>
 </template>
 

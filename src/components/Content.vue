@@ -16,7 +16,7 @@ import "@/assets/main.css";
         <div class="body-text text-bold text-md">
             Alcove at Caldwell House (Chjimes)
         </div>
-        <a class="availability-button" href="#/form">Indicate availability</a>
+        <a class="availability-button" href="#/card">Indicate availability</a>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.79916623114!2d103.84991557471228!3d1.2950610617500404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a467a5d439%3A0xe1c2074b69e99075!2sAlcove%20at%20Caldwell%20House!5e0!3m2!1sen!2ssg!4v1747901379363!5m2!1sen!2ssg" width="400" height="300" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </template>

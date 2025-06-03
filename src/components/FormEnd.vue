@@ -2,7 +2,7 @@
 import '@/assets/main.css';
 import { onBeforeMount, onMounted, onUnmounted } from 'vue';
 
-const props = defineProps(['filledFormRef', 'toggleForm', 'swipeDirectionRef', 'toggleSwipeDirection'])
+const props = defineProps(['filledFormRef', 'toggleForm', 'attendingRef', 'updateRef'])
 
 onBeforeMount(() => {
     if (!props.filledFormRef) {
@@ -15,7 +15,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    props.toggleSwipeDirection(1);
+    props.updateRef("attendance", "")
 })
 
 </script>
@@ -23,7 +23,7 @@ onUnmounted(() => {
 <template>
     <div class="desktop-bg">
         <div class="form-end-background-container fade-in">
-            <div v-if="props.swipeDirectionRef == 1">
+            <div v-if="props.attendingRef === 'Y'">
                 <p class="form-end-text">Thank you for joining us!</p>
                 <p class="form-end-text">Look forward to seeing you there!</p>
             </div>

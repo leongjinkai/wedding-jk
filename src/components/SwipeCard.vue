@@ -1,32 +1,12 @@
 <script setup lang="ts">
 import "@/assets/main.css";
-import { onBeforeMount, onMounted } from "vue";
-import { generateClient } from 'aws-amplify/data';
-import type { Schema } from "../../amplify/data/resource";
+import { onMounted } from "vue";
 
-const props = defineProps(['nameRef', 'emailRef', 'dietRef', 'messageRef', 'filledFormRef', 'toggleSwipeDirection'])
+const props = defineProps(['filledFormRef', 'updateRef'])
 
-onBeforeMount(() => {
-    if (!props.filledFormRef) {
-        window.location.hash = "/";
-    }
-})
-
-async function saveAttendance(attending: boolean) {
-    const client = generateClient<Schema>();
-
-
-    const { errors, data: newAttendance } = await client.models.Attendance.create({
-        name: props.nameRef,
-        email: props.emailRef,
-        dietaryPreferences: props.dietRef,
-        messageToCouple: props.messageRef,
-        attending: attending
-    })
-
-    if (errors) {
-        console.log(errors)
-    }
+const submitAttendance = (attending: boolean) => {
+    props.updateRef('attendance', attending ? "Y" : "N")
+    window.location.hash = "/form";
 }
 
 onMounted(() => {
@@ -34,7 +14,7 @@ onMounted(() => {
     let animating = false;
     let cardsCounter = 0;
     const numOfCards = 6;
-    const decisionVal = 60;
+    const decisionVal = 120;
     let pullDeltaX = 0;
     let deg = 0;
     let card: any, cardReject: any, cardLike: any;
@@ -54,15 +34,14 @@ onMounted(() => {
 
     function release() {
         if (pullDeltaX >= decisionVal) {
-            saveAttendance(true)
-            props.toggleSwipeDirection(1)
+            props.updateRef('attendance', "Y")
             card.classList.add("to-right");
+            window.location.hash = "/form";
         } else if (pullDeltaX <= -decisionVal) {
-            saveAttendance(false)
-            props.toggleSwipeDirection(0)
+            props.updateRef('attendance', "N")
             card.classList.add("to-left");
+            window.location.hash = "/form";
         }
-        window.location.hash = "/form-end";
 
         if (Math.abs(pullDeltaX) >= decisionVal) {
             card.classList.add("inactive");
@@ -138,7 +117,7 @@ onMounted(() => {
             <div class="demo__card">
                 <div class="demo__card__top">
                     <div class="default_card_img">
-                        <p class="text-default">JX & JK Wedding</p>
+                        <p class="text-default">Attending JXJK wedding?</p>
                     </div>
                 </div>
                 <div class="demo__card__choice m--reject">
@@ -157,14 +136,11 @@ onMounted(() => {
                 <div class="demo__card__drag"></div>
             </div>
         </div>
-        <div class="instruction-container">
-            <div>
-                <p class="swipe-instructions">If unable to make it</p>
-                <p class="swipe-instructions">Swipe Left</p>
-            </div>
-            <div>
-                <p class="swipe-instructions align-right">If can make it</p>
-                <p class="swipe-instructions align-right">Swipe Right</p>
+        <div>
+            <p class="swipe-instructions">Swipe left for No and right for Yes<br> or tap buttons below.</p>
+            <div class="instruction-container">
+                <p class="attending-button" @click="submitAttendance(false)">No</p>
+                <p class="attending-button" @click="submitAttendance(true)">Yes</p>
             </div>
         </div>
     </div>
@@ -181,6 +157,26 @@ onMounted(() => {
     --cardTopH: 10rem;
     --cardBtmH: var(--cardH) - var(--cardTopH);
     --vidSize: 8rem;
+}
+
+.attending-button {
+    padding: 8px 8px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 400;
+    color: black;
+    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    transition-duration: 0.4s;
+    margin: 0px;
+}
+
+.attending-button:hover {
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
 }
 
 .body-text {
@@ -201,7 +197,7 @@ onMounted(() => {
 .demo__content {
     /* overflow: hidden; */
     position: relative;
-    height: 90dvh;
+    height: 80dvh;
     width: 100vw;
     user-select: none;
     cursor: grab;
@@ -215,7 +211,7 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     transform-origin: 50% 100%;
-    margin-top: 40px;
+    padding-top: 40px;
 }
 .demo__card.reset {
     transition: transform 0.3s;
@@ -248,7 +244,7 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80dvh;
+    height: 70dvh;
     width: 100vw;
     overflow: hidden;
 }
@@ -273,7 +269,7 @@ onMounted(() => {
 .demo__card__choice {
     position: absolute;
     left: 5vw;
-    top: 0;
+    top: 40px;
     width: 100%;
     height: 80dvh;
     opacity: 0;
@@ -288,7 +284,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
-    height: 80dvh;
+    height: 70dvh;
     align-items: end;
     overflow: hidden;
 }
@@ -298,7 +294,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
-    height: 80dvh;
+    height: 70dvh;
     align-items: end;
     overflow: hidden;
 }
@@ -374,7 +370,7 @@ onMounted(() => {
 .instruction-container {
     display: flex;
     justify-content: space-between;
-    padding: 10px 5vw;
+    padding: 0px 5vw;
 }
 
 .align-right {
@@ -384,7 +380,8 @@ onMounted(() => {
 p.swipe-instructions {
     padding: 0px;
     color: black;
-    font-size: 20px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 @media only screen and (min-width: 600px) {
@@ -422,14 +419,14 @@ p.swipe-instructions {
     }
 
     .demo__card__choice.m--like {
-    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/like_card.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: 30vw;
-    width: 30vw;
-    height: 80dvh;
-    align-items: end;
-    overflow: hidden;
-}
+        background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/like_card.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 30vw;
+        width: 30vw;
+        height: 80dvh;
+        align-items: end;
+        overflow: hidden;
+    }
 }
 </style>

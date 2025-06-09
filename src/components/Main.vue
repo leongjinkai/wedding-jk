@@ -7,19 +7,15 @@ import Content from './Content.vue'
 <template>
     <main class="background-container">
         <div class="main-container">
-            <header class="ephesis-regular header-details">
+            <header class="playfair-display header-details">
                 Jin Kai & Jia Xuan
             </header>
-            <div class="primary-details-container ephesis-regular">
-                <p class="primary-details">25.10.2025</p>
-                <p class="primary-details">Alcove at Caldwell House</p>
-            </div>
         </div>
     </main>
   <Content />
 </template>
 
-<style>
+<style scoped>
 p.primary-details {
     padding: 0px;
     margin: 0px;
@@ -43,13 +39,17 @@ p.primary-details {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     z-index: 1;
     font-size: clamp(100px, 5vw, 200px);
 }
 
 .header-details {
     line-height: 1em;
-    padding-left: 20px;
+    font-size: 5.5rem;
+    /* padding-bottom: 20px; */
+    /* padding: 0px 20px 0px 20px; */
+    width: 80%;
 }
 
 .primary-details-container {
@@ -62,13 +62,27 @@ p.primary-details {
 }
 
 .primary-details {
-    font-size: clamp(25px, 2vw, 50px);
-    color: black;
+    font-size: clamp(20px, 2vw, 50px);
+    color: grey;
 }
 
 .ephesis-regular {
   font-family: "Ephesis", cursive;
   font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.funnel-sans {
+  font-family: "Funnel Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
   font-style: normal;
 }
 

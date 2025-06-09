@@ -6,21 +6,16 @@ import SwipeCard from './components/SwipeCard.vue'
 import Form from './components/Form.vue'
 import FormEnd from './components/FormEnd.vue'
 
-const enum Direction {
-    Left,
-    Right
-}
-
 const nameRef = ref("");
 const emailRef = ref("");
 const mobileRef = ref("");
 const dietRef = ref("");
+const drivingRef = ref("");
 const messageRef = ref("");
 const attendingRef = ref("");
 const filledFormRef = ref(false)
 
 function updateRef(refKey: string, newValue: string) {
-    console.log(`updated Ref for ${refKey} with ${newValue}`)
     switch (refKey) {
         case "name":
             nameRef.value = newValue;
@@ -30,6 +25,9 @@ function updateRef(refKey: string, newValue: string) {
             break;
         case "mobile":
             mobileRef.value = newValue;
+            break;
+        case "driving":
+            drivingRef.value = newValue;
             break;
         case "diet":
             dietRef.value = newValue;
@@ -74,6 +72,6 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef"/>
+  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :drivingRef="drivingRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef"/>
 </template>
 

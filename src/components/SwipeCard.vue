@@ -117,17 +117,10 @@ onMounted(() => {
             <div class="demo__card">
                 <div class="demo__card__top">
                     <div class="default_card_img">
-                        <p class="text-default">Attending JXJK wedding?</p>
+                        <p class="text-default">Attending JKJX wedding?</p>
                     </div>
                 </div>
                 <div class="demo__card__choice m--reject">
-                    <!-- <video
-                        class="demo__card__vid"
-                        src="../assets/saibin.webm"
-                        type="video/webm"
-                        autoplay
-                        loop
-                    ></video> -->
                     <p class="text-reject">Are you sure?</p>
                 </div>
                 <div class="demo__card__choice m--like">
@@ -166,10 +159,10 @@ onMounted(() => {
     border-radius: 8px;
     font-weight: 400;
     color: black;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
-    font-weight: 400;
+    font-family: "Funnel Sans", sans-serif;
+    font-weight: 200;
     font-style: normal;
-    font-size: 24px;
+    font-size: 1.2rem;
     transition-duration: 0.4s;
     margin: 0px;
 }
@@ -177,13 +170,6 @@ onMounted(() => {
 .attending-button:hover {
     background-color: white;
     box-shadow: 2px 2px 5px black;
-}
-
-.body-text {
-    font-family: "Alumni Sans Pinstripe", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: clamp(25px, 2vw, 50px);
 }
 
 .text-bold {
@@ -321,8 +307,8 @@ onMounted(() => {
 }
 
 .text-reject {
-    font-size: 4rem;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-size: 2rem;
+    font-family: "Playfair Display", sans-serif;
     font-weight: 400;
     font-style: normal;
     margin: 0px;
@@ -335,8 +321,8 @@ onMounted(() => {
 }
 
 .text-like {
-    font-size: 3rem;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-size: 2rem;
+    font-family: "Playfair Display", sans-serif;
     font-weight: 400;
     font-style: normal;
     margin: 0px;
@@ -345,9 +331,9 @@ onMounted(() => {
 }
 
 .text-default {
-    font-size: 3rem;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
-    font-weight: 400;
+    font-size: 2rem;
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 200;
     font-style: normal;
     margin: 0px;
     padding-left: 40%;
@@ -358,7 +344,7 @@ onMounted(() => {
 .swipe-instructions {
     color: white;
     margin: 0px 0px 0px 0px;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-family: "Playfair Display", sans-serif;
     font-size: 1rem
 }
 
@@ -380,7 +366,7 @@ onMounted(() => {
 p.swipe-instructions {
     padding: 0px;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 

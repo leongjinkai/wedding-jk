@@ -17,6 +17,7 @@ const schema = a.schema({
         name: a.string(),
         email: a.string(),
         mobile: a.string(),
+        driving: a.boolean(),
         dietaryPreferences: a.string(),
         messageToCouple: a.string(),
         attending: a.boolean()

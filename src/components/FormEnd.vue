@@ -46,10 +46,10 @@ onUnmounted(() => {
 
 .form-end-text {
     margin: 0px;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
+    font-family: "Funnel Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 10px;
 }
 
@@ -65,10 +65,10 @@ onUnmounted(() => {
 
     .form-end-text {
         margin: 0px;
-        font-family: "Alumni Sans Pinstripe", sans-serif;
+        font-family: "Funnel Sans", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 3rem;
+        font-size: 2rem;
         padding: 10px;
     }
 

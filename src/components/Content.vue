@@ -6,14 +6,11 @@ import "@/assets/main.css";
 <template>
     <div class="content-container">
         <div class="header-text">You’re Invited</div>
-        <div class="body-text">
-            We’d love for you to come celebrate our big day with us!
-        </div>
-        <div class="text-bold text-md address-text">
+        <div class="text-md address-text">
             <p class="address-detail">SATURDAY 25 OCTOBER 2025</p>
             <p class="address-detail">11.30 AM</p>
         </div>
-        <div class="body-text text-bold text-md">
+        <div class="address-text text-md">
             Alcove at Caldwell House (Chjimes)
         </div>
         <a class="availability-button" href="#/card">Indicate availability</a>
@@ -21,7 +18,7 @@ import "@/assets/main.css";
     </div>
 </template>
 
-<style>
+<style scoped>
 .content-container {
     background-color: #f7ece7;
     width: 100vw;
@@ -32,10 +29,11 @@ import "@/assets/main.css";
 }
 
 .header-text {
-    font-family: "Ephesis", cursive;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(60px, 5vw, 200px);
+    font-size: clamp(50px, 5vw, 200px);
     margin-bottom: 20px;
 }
 
@@ -43,12 +41,14 @@ import "@/assets/main.css";
     display: flex;
     gap: 10px;
     flex-direction: column;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
+    align-items: center;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-size: clamp(25px, 2vw, 50px);
-    margin: 20px 0 20px 20px;
-    align-self: start;
+    margin: 20px 0 0px 00px;
+    width: 100%;
 }
 
 .address-detail {
@@ -56,18 +56,21 @@ import "@/assets/main.css";
 }
 
 .body-text {
-    font-family: "Alumni Sans Pinstripe", sans-serif;
-    font-weight: 400;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
     font-style: normal;
-    font-size: clamp(25px, 2vw, 50px);
+    font-size: clamp(20px, 2vw, 50px);
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 600px) {
     .body-text {
-        font-family: "Alumni Sans Pinstripe", sans-serif;
-        font-weight: 400;
+        font-family: "Funnel Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
         font-style: normal;
         font-size: clamp(25px, 2vw, 50px);
         margin-left: 20px;
@@ -78,7 +81,8 @@ import "@/assets/main.css";
         gap: 10px;
         align-items: center;
         align-self: center;
-        font-family: "Alumni Sans Pinstripe", sans-serif;
+        font-family: "Funnel Sans", sans-serif;
+        font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
         font-size: clamp(25px, 2vw, 50px);
@@ -91,7 +95,7 @@ import "@/assets/main.css";
 }
 
 .text-md {
-    font-size: clamp(40px, 2vw, 50px);
+    font-size: clamp(20px, 2vw, 50px);
 }
 
 .availability-button {
@@ -102,10 +106,11 @@ import "@/assets/main.css";
     margin: 40px 0 40px 0;
     font-weight: 400;
     color: black;
-    font-family: "Alumni Sans Pinstripe", sans-serif;
-    font-weight: 400;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
     font-style: normal;
-    font-size: 24px;
+    font-size: 1.2rem;
     transition-duration: 0.4s;
 }
 

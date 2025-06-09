@@ -4,7 +4,7 @@ import { generateClient } from 'aws-amplify/data';
 import type { Schema } from "../../amplify/data/resource";
 import { onBeforeMount, onMounted } from 'vue';
 
-const props = defineProps(['nameRef', 'emailRef', 'mobileRef', 'dietRef', 'drivingRef', 'messageRef', 'updateRef', 'attendingRef', 'toggleForm'])
+const props = defineProps(['nameRef', 'emailRef', 'mobileRef', 'dietRef', 'drivingRef', 'messageRef', 'updateRef', 'attendingRef', 'toggleForm', 'resetAllRef'])
 
 onBeforeMount(() => {
     if (props.attendingRef === "") {
@@ -15,6 +15,7 @@ onBeforeMount(() => {
 async function submitForm() {
     props.toggleForm(true);
     saveAttendance()
+    props.resetAllRef();
     window.location.hash = "/form-end";
 }
 
@@ -68,7 +69,7 @@ async function saveAttendance() {
                     <!-- @vue-expect-error -->
                     <select class="driving-dropdown" id="driving" name="driving" required @input="event => updateRef('driving', event.target?.value)">
                         <option value="Y">Yes</option>
-                        <option value="N">No</option>
+                        <option selected value="N">No</option>
                     </select>
                 </div>
                 <div id="qn-5" class="fade-in">

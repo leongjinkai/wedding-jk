@@ -43,6 +43,16 @@ function updateRef(refKey: string, newValue: string) {
     }
 }
 
+function resetAllRef() {
+    nameRef.value = "";
+    emailRef.value = "";
+    mobileRef.value = "";
+    drivingRef.value = "";
+    dietRef.value = "";
+    messageRef.value = "";
+    attendingRef.value = "";
+}
+
 function toggleForm(filled: boolean) {
     filledFormRef.value = filled;
 }
@@ -72,6 +82,6 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :drivingRef="drivingRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef"/>
+  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :drivingRef="drivingRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef" :resetAllRe="resetAllRef"/>
 </template>
 

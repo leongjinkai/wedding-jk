@@ -46,7 +46,7 @@ p.primary-details {
 
 .header-details {
     line-height: 1em;
-    font-size: 5rem;
+    font-size: 4rem;
     /* padding-bottom: 20px; */
     /* padding: 0px 20px 0px 20px; */
     width: 80%;

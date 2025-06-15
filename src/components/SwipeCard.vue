@@ -2,7 +2,7 @@
 import "@/assets/main.css";
 import { onMounted } from "vue";
 
-const props = defineProps(['filledFormRef', 'updateRef'])
+const props = defineProps(['filledFormRef', 'updateRef', 'swipeFeatureFlag'])
 
 const submitAttendance = (attending: boolean) => {
     props.updateRef('attendance', attending ? "Y" : "N")
@@ -74,8 +74,10 @@ onMounted(() => {
         }, 300);
     }
 
-    document.addEventListener("mousedown", handleStart);
-    document.addEventListener("touchstart", handleStart);
+    if (props.swipeFeatureFlag) {
+        document.addEventListener("mousedown", handleStart);
+        document.addEventListener("touchstart", handleStart);
+    }
 
     function handleStart(e: any) {
         const target = e.target.closest(".demo__card:not(.inactive)");
@@ -130,7 +132,8 @@ onMounted(() => {
             </div>
         </div>
         <div>
-            <p class="swipe-instructions">Swipe left for No and right for Yes<br> or tap buttons below.</p>
+            <p v-if="swipeFeatureFlag" class="swipe-instructions">Swipe left for No and right for Yes<br> or tap buttons below.</p>
+            <p v-else style="margin-bottom: 20px;" class="swipe-instructions">Tap buttons to indicate attendance.</p>
             <div class="instruction-container">
                 <p class="attending-button" @click="submitAttendance(false)">No</p>
                 <p class="attending-button" @click="submitAttendance(true)">Yes</p>
@@ -296,7 +299,7 @@ onMounted(() => {
 }
 
 .default_card_img {
-    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/default_card.jpeg");
+    background-image: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/form-attending-bg.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 90vw;
@@ -304,6 +307,7 @@ onMounted(() => {
     border-radius: 5%;
     display: flex;
     align-items: end;
+    background-position-y: -80px;
 }
 
 .text-reject {

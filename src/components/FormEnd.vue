@@ -37,16 +37,17 @@ onUnmounted(() => {
 
 <style>
 .form-end-background-container {
-    background: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/form-attending-bg.jpeg");
+    background: url("https://wedding-jk.s3.ap-southeast-1.amazonaws.com/public/photo_2025-06-15+15.24.50.jpeg");
     width: 100vw;
     height: 100dvh;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position-x: -20px;
 }
 
 .form-end-text {
     margin: 0px;
-    font-family: "Funnel Sans", sans-serif;
+    font-family: "Playfair Display", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 2rem;

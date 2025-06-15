@@ -8,7 +8,7 @@ import Content from './Content.vue'
     <main class="background-container">
         <div class="main-container">
             <header class="playfair-display header-details">
-                Jin Kai & Jia Xuan
+                Jin Kai &<br> Jia Xuan
             </header>
         </div>
     </main>

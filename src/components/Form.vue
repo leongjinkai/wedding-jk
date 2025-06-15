@@ -89,6 +89,7 @@ async function saveAttendance() {
     padding: 30px 30px 30px 30px;
     width: calc(100vw - 60px);
     background-color: #f7ece7;
+    min-height: calc(100dvh - 60px);
 }
 
 .driving-dropdown {
@@ -132,7 +133,7 @@ async function saveAttendance() {
 }
 
 .question-text {
-    font-family: "Funnel Sans", cursive;
+    font-family: "Playfair Display", serif;
     font-weight: 200;
     font-style: normal;
     font-size: 2.5rem;

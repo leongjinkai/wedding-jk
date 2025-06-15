@@ -49,12 +49,12 @@ async function saveAttendance() {
                     <!-- @vue-expect-error -->
                     <input type="text" placeholder="Type here..." @input="event => updateRef('name', event.target?.value)" autofocus required>
                 </div>
-                <div id="qn-2" class="fade-in">
+                <div v-if="props.attendingRef == 'Y'" id="qn-2" class="fade-in">
                     <p class="question-text">Email Address</p>
                     <!-- @vue-expect-error -->
                     <input type="email" placeholder="Type here..." required @input="event => updateRef('email', event.target?.value)">
                 </div>
-                <div id="qn-3" class="fade-in">
+                <div v-if="props.attendingRef == 'Y'" id="qn-3" class="fade-in">
                     <p class="question-text">Mobile Number</p>
                     <!-- @vue-expect-error -->
                     <input type="tel" placeholder="Type here..." required @input="event => updateRef('mobile', event.target?.value)">

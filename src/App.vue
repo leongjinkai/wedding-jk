@@ -50,7 +50,6 @@ function resetAllRef() {
     drivingRef.value = "";
     dietRef.value = "";
     messageRef.value = "";
-    attendingRef.value = "";
 }
 
 function toggleForm(filled: boolean) {

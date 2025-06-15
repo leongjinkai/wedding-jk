@@ -82,6 +82,6 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :drivingRef="drivingRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef" :resetAllRe="resetAllRef"/>
+  <component :is="currentView" :nameRef="nameRef" :mobileRef="mobileRef" :emailRef="emailRef" :dietRef="dietRef" :drivingRef="drivingRef" :messageRef="messageRef" :filledFormRef="filledFormRef" :attendingRef="attendingRef" :toggleForm="toggleForm" :updateRef="updateRef" :resetAllRef="resetAllRef"/>
 </template>
 
